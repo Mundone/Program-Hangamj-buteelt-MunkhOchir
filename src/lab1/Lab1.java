@@ -30,7 +30,7 @@ public class Lab1 {
 				case 3:{
 					System.out.println("Та нэмэх элементээ бичнэ үү.");
 					queue.add(scn.next());
-					System.out.println("Queue-д Амжилттай нэмэгдлээ:"+ queue.toString());
+					System.out.println("Queue-д Амжилттай нэмэгдлээ: "+ queue.toString());
 					break;
 				}
 				case 4:{
