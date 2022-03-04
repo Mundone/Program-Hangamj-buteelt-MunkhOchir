@@ -19,18 +19,24 @@ public class Lab1 {
 			switch(songolt) {
 			
 				case 1:
+					if(queue.getLength() == 0)
+					System.out.println("Хоосон байна");
+					else
+						System.out.println("Хоосон биш байна");
 					break;
 				case 2:
-					System.out.println("Queue-ын урт: " + queue.getLength());
+					System.out.println(queue.toString()+"Queue-ын урт: " + queue.getLength());
 					break;
 				case 3:{
 					System.out.println("Та нэмэх элементээ бичнэ үү.");
 					queue.add(scn.next());
+					System.out.println("Queue-д Амжилттай нэмэгдлээ:"+ queue.toString());
 					break;
 				}
 				case 4:{
+					System.out.println("Queue-д байсан элементүүд:\n"+ queue.toString());
 					queue.remove();
-					System.out.println("Амжилттай устгалаа.");
+					System.out.println("Амжилттай устгалаа Одоо байгаа элементүүд:\n"+ queue.toString());
 					break;
 				}
 				case 5:{
@@ -47,8 +53,10 @@ public class Lab1 {
 					break;
 				}
 				case 7:
+					System.out.println("Эхний элемент: " + queue.getFrontElement());
 					break;
 				case 8:
+					System.out.println("Арын элемент: " + queue.getRearElement());
 					break;
 				case 9:{
 					scn.close();
