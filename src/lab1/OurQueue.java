@@ -59,4 +59,17 @@ public class OurQueue {
 		}
 		return s;
 	}
+//	public Object isEmpty()
+//	{	
+//		return 0;
+//	}
+	public Object getFrontElement()
+	{
+		return arr[0];
+	}
+	public Object getRearElement()
+	{
+		return arr[getLength()-1];
+	}
+	
 }
