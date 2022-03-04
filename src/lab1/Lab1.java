@@ -67,6 +67,6 @@ public class Lab1 {
 					System.out.println("Буруу утга орууллаа. Та дахин оролдоно уу."); 
 					break;
 			}
-		}
+		}//sifnigenr
 	}
 }
