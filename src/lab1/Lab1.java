@@ -35,8 +35,10 @@ public class Lab1 {
 				}
 				case 4:{
 					System.out.println("Queue-д байсан элементүүд:\n"+ queue.toString());
-					queue.remove();
-					System.out.println("Амжилттай устгалаа Одоо байгаа элементүүд:\n"+ queue.toString());
+					if(queue.remove())
+						System.out.println("Амжилттай устгалаа. Одоо байгаа элементүүд:\n"+ queue.toString());
+					else
+						System.out.println("Устгаж чадсангүй. Элемент байхгүй байна.");
 					break;
 				}
 				case 5:{

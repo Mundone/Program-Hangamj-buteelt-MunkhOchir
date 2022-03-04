@@ -40,8 +40,13 @@ public class OurQueue {
 		}
 	}
 	
-	void remove() {
-		arr[getLength()-1] = null;
+	boolean remove() {
+		if(getLength() == 0)
+			return false;
+		else {
+			arr[getLength()-1] = null;
+			return true;
+		}
 	}
 	
 	boolean isExist(Object element) {
