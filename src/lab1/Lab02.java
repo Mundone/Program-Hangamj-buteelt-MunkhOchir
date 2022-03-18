@@ -14,12 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
-public class Lab2 {
+public class Lab02 {
 
 	private JFrame frame;
 	private JTextField textAdd;
 	private JTextField textIsExist;
-	
+	//fuck you
 	
 	
 	/**
@@ -30,7 +30,7 @@ public class Lab2 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Lab2 window = new Lab2();
+					Lab02 window = new Lab02();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class Lab2 {
 	/**
 	 * Create the application.
 	 */
-	public Lab2() {
+	public Lab02() {
 		initialize();
 	}
 
