@@ -5,7 +5,7 @@ import java.util.*;
 public class Lab1 {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
-		OurQueue queue = new OurQueue();
+		OurQueueObject queue = new OurQueueObject();
 		queue.add(11);
 		queue.add(12);
 		queue.add(15);
