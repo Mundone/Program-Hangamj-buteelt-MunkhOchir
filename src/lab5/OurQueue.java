@@ -1,15 +1,18 @@
-package lab2;
+package lab5;
+import com.google.java.contract.Ensures;
+import com.google.java.contract.Invariant;
+import com.google.java.contract.Requires;
+
 
 public class OurQueue <G> {
 	G[] arr;
-	
 	
 	public OurQueue (int defaultLength) {
 		if(defaultLength < 1)
 			System.out.println("Queue 1 урттай байж болохгүй.");
 		arr = (G[])new Object[defaultLength];
 	}
-	
+
 	public OurQueue() {
 		this(10);
 	}

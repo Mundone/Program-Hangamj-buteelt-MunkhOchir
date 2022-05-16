@@ -1,4 +1,4 @@
-package lab2;
+package lab5;
 
 import java.util.*;
 
@@ -14,13 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
-public class Lab02 {
+public class Lab05 {
 
 	private JFrame frame;
 	private JTextField textAdd;
 	private JTextField textIsExist;
-	//fuck you
-	
+		
 	
 	/**
 	 * Launch the application.
@@ -30,7 +29,7 @@ public class Lab02 {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Lab02 window = new Lab02();
+					Lab05 window = new Lab05();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +41,7 @@ public class Lab02 {
 	/**
 	 * Create the application.
 	 */
-	public Lab02() {
+	public Lab05() {
 		initialize();
 	}
 
@@ -53,7 +52,6 @@ public class Lab02 {
 		
 		Scanner scn = new Scanner(System.in);
 		OurQueue queue = new OurQueue();
-		queue.remove();
 		queue.add(12);
 		queue.add(15);
 		
@@ -88,7 +86,7 @@ public class Lab02 {
 		JButton btnLength = new JButton("Length");
 		btnLength.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText(queue.toString()+"Queue-ын урт: " + queue.getLength());
+				textArea.setText("Queue-ын урт: " + queue.getLength());
 			}
 		});
 		btnLength.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -102,8 +100,8 @@ public class Lab02 {
 				}
 				else {
 					queue.add(textAdd.getText());
-					textArea.setText("Queue-д Амжилттай нэмэгдлээ: "+ queue.toString());
-					textArea.setText("");
+					textArea.setText(textAdd.getText() + " элементийг дараалалд амжилттай нэмэгдлээ.");
+					textAdd.setText("");
 				}	
 			}
 		});
@@ -114,30 +112,38 @@ public class Lab02 {
 		JButton btnRemove = new JButton("Remove");
 		btnRemove.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Queue-д байсан элементүүд:\n"+ queue.toString());
+				Object tempElement = "";
+				if(queue.getLength() > 0)
+					tempElement = queue.getRearElement();
 				if(queue.remove())
-					textArea.setText("Амжилттай устгалаа Одоо байгаа элементүүд:\n"+ queue.toString());
+					textArea.setText(tempElement + " элементийг амжилттай устгалаа");
 				else
-					textArea.setText("Устгаж чадсангүй. Элемент хоосон байна");
+					textArea.setText("Устгаж чадсангүй. Дараалал хоосон байна");
 			}
 		});
 		btnRemove.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnRemove.setBounds(692, 269, 159, 52);
 		frame.getContentPane().add(btnRemove);
 		
+		textIsExist = new JTextField();
+		textIsExist.setColumns(10);
+		textIsExist.setBounds(335, 161, 285, 48);
+		frame.getContentPane().add(textIsExist);
+		
 		JButton btnExist = new JButton("isExist");
 		btnExist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(textAdd.getText().isEmpty()) {
+				if(textIsExist.getText().isEmpty()) {
+					
 				}
 				else {
 					if(queue.isExist(textIsExist.getText()))
-						textArea.setText("Таны оруулсан элемент энэ queue-д БАЙНА.");
+						textArea.setText(textIsExist.getText() + " элемент энэ queue-д БАЙНА.");
 					else
-						textArea.setText("Таны оруулсан элемент энэ queue-д БАЙХГҮЙ.");
-					textArea.setText("");
+						textArea.setText(textIsExist.getText() + " элемент энэ queue-д БАЙХГҮЙ.");
 
 				}
+				textIsExist.setText("");
 			}
 		});
 		btnExist.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -147,17 +153,24 @@ public class Lab02 {
 		JButton btnTostring = new JButton("toString");
 		btnTostring.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText(queue.toString());
+				if(queue.getLength() > 0)
+					textArea.setText(queue.toString());
+				else
+					textArea.setText("Дараалал хоосон байна.");
 			}
 		});
 		btnTostring.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnTostring.setBounds(60, 341, 159, 52);
+		if(queue.getLength() > 0)
 		frame.getContentPane().add(btnTostring);
 		
 		JButton btnGetfrontelement = new JButton("getFrontElement");
 		btnGetfrontelement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Эхний элемент: " + queue.getFrontElement());
+				if(queue.getLength() > 0)
+					textArea.setText("Эхний элемент: " + queue.getFrontElement());
+				else
+					textArea.setText("Дараалал хоосон байна.");
 			}
 		});
 		btnGetfrontelement.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -167,20 +180,14 @@ public class Lab02 {
 		JButton btnGetrearelement = new JButton("getRearElement");
 		btnGetrearelement.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textArea.setText("Арын элемент: " + queue.getRearElement());
+				if(queue.getLength() > 0)
+					textArea.setText("Арын элемент: " + queue.getRearElement());
+				else
+					textArea.setText("Дараалал хоосон байна.");
 			}
 		});
 		btnGetrearelement.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnGetrearelement.setBounds(376, 269, 159, 52);
 		frame.getContentPane().add(btnGetrearelement);
-		
-		textIsExist = new JTextField();
-		textIsExist.setColumns(10);
-		textIsExist.setBounds(335, 161, 285, 48);
-		frame.getContentPane().add(textIsExist);
-		
-		
-		
-		
 	}
 }
